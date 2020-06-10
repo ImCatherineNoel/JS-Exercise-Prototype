@@ -83,7 +83,6 @@ this.odometer =0;
 Car.prototype.fill = function fill(gallons) {
      this.tank = this.tank + gallons
 }
-
 }
 
 /*
@@ -93,18 +92,29 @@ Car.prototype.fill = function fill(gallons) {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
 
+function Baby(name, age, favoriteToy) {
+  Person.call(this, name, age)
+  this.favoriteToy = favoriteToy;
+  Baby.prototype.play = function play() {
+     return(`Playing with ${this.favoriteToy}`);
 }
+ }
+ Baby.prototype = Object.create(Person.prototype);
+ 
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+
+  1.  If .--  this  -- is in global scope it belongs to the window it is being run in.
+
+  2. If a function is called after a   .   the stuff before the dot is = --  this  -- and is pointing to part of the program
+
+  3. With constructors --  this  -- is pointing to the object being created and returned by the constructor.  
+
+  4. If you use call or apply methods --  this  -- points to what these will apply or call allowing you to change the context of functions. 
 */
 
 
