@@ -51,15 +51,15 @@ function Person(name, age) {
           else {
                console.log(`You need to poop first!`);
           }
-     }
+     };
      Person.prototype.poop = function poop() {
           this.stomach = [ ];
           console.log(`You pooped!`);
-     }   
+     }; 
      Person.prototype.toString = function personToString(){
           return(`${this.name} is ${this.age} years old`);
-     }
-}
+     };
+};
 
 /*
   TASK 2
@@ -82,8 +82,12 @@ this.tank = 0;
 this.odometer =0;
 Car.prototype.fill = function fill(gallons) {
      this.tank = this.tank + gallons
-}
-}
+};
+Car.prototype.drive = function drive(distance){
+this.odometer = this.odometer + distance;
+this.tank = this.tank - (distance / this.milesPerGallon);
+};
+};
 
 /*
   TASK 3
